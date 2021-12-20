@@ -48,9 +48,9 @@ function App(props: AppProps) {
         }}
         configuration={configuration}
         renderLoader={progress => progress < 100 && (
-          <p style={{ position: "absolute", bottom: 16, left: 16 }}>
-            {progress} %
-          </p>
+          <div className="App__loader">
+            {progress}%
+          </div>
         )}
         onReady={onReady}
         onError={onError}
