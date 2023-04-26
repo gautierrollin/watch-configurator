@@ -63,6 +63,12 @@ module.exports = {
       classes : "always"
     }],
 
+    "no-restricted-exports" : ["error", {
+      restrictDefaultExports : {
+        defaultFrom : false
+      }
+    }],
+
     /**
      * React
      */

@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Menu from "../Menu";
 import Viewer from "../Viewer";
+import PublicViewer from "../Viewer/PublicViewer";
 import GetFieldsOutput from "../Viewer/ViewerWrapper/GetFieldsOutput";
 import Configuration from "./Configuration";
 import "./App.css";
@@ -16,13 +17,13 @@ function App(props: AppProps) {
   const [configuration, setConfiguration] = useState<Configuration>(props.defaultConfiguration);
   const [fields, setFields] = useState<GetFieldsOutput["fields"]>();
 
-  const onReady = useCallback(async viewer => {
+  const onReady = useCallback(async (viewer: PublicViewer) => {
     // eslint-disable-next-line no-console
     console.log("viewer", viewer);
     setFields((await viewer.getFields()).fields);
   }, []);
 
-  const onError = useCallback(error => {
+  const onError = useCallback((error: Error) => {
     // eslint-disable-next-line no-console
     console.log("error", error);
   }, []);
